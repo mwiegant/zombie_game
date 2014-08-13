@@ -6,6 +6,18 @@ and reinforce my javascript skills.  It is also a place to begin building up my 
 
 
 
+# Structure of this Project
+
+This project is run as so:
+
+    index.html
+        |
+        |-> index.js
+                |
+                |-> main.js
+                       |
+                       |-> [all code within js folder]
+
 Specs, Important Dates, or information about using this code may be written in the future.
 
 
