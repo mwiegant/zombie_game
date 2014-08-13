@@ -1,0 +1,3 @@
+/*
+This is the zombie class. All zombie functionality goes into this file.
+ */
