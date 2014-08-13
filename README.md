@@ -1,5 +1,6 @@
 
 ### About This Project
+-----
 
 This is a small project that is slated to be completed over approx 2 weeks.  It is meant to be a sample of what I know, 
 and reinforce my javascript skills.  It is also a place to begin building up my base of code.
@@ -17,6 +18,9 @@ This project is run as so:
                 |-> main.js
                        |
                        |-> [all code within js folder]
+                       
+
+ # ~
 
 Specs, Important Dates, or information about using this code may be written in the future.
 
