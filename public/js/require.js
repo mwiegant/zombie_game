@@ -55,7 +55,7 @@
     
  */
 
-
+window.requireDebug = true;
 
 function require(url, cb, type) {
     if (!require.load_count) { require.load_count = 0; }
@@ -66,7 +66,7 @@ function require(url, cb, type) {
     // handle generic loading stuff
     function loaded (url){
         --require.load_count;
-        console.log("loaded: " + url + ", count: " + require.load_count);
+        if(window.requireDebug) console.log("loaded: " + url + ", count: " + require.load_count);
         if (require.load_count === 0) {
             var done_cbs = window.modules._done_cbs || [];
             done_cbs.forEach(function (cb) { cb(); });
@@ -89,7 +89,7 @@ function require(url, cb, type) {
                     if (cb) { cb(module); }
                     loaded (url);
                 };
-                console.log("starting to load: " + url);
+                if(window.requireDebug)  console.log("starting to load: " + url);
                 ++require.load_count;
                 document.body.appendChild(script);
             }
@@ -101,7 +101,7 @@ function require(url, cb, type) {
                     if (cb) { cb(module); }
                     loaded (url);
                 };
-                console.log("starting to load: " + url);
+                if(window.requireDebug)  console.log("starting to load: " + url);
                 ++require.load_count;
                 doc_frag.appendChild(e);
             }
@@ -112,11 +112,11 @@ function require(url, cb, type) {
                 var blob = new Blob([
                     "importScripts('" + _url + "');"
                 ]);
-                console.log("creating worker:" + _url);
+                if(window.requireDebug)  console.log("creating worker:" + _url);
                 return new Worker(window.URL.createObjectURL(blob));
             }
             else if (cb) {
-                console.log("failed to load: " + url);
+                if(window.requireDebug)  console.log("failed to load: " + url);
                 cb (null);
             }
         }
@@ -125,7 +125,7 @@ function require(url, cb, type) {
     }
 }
 
-// function that modules use to export thier methods and members
+// function that modules use to export their methods and members
 function exports(file_name, func_name, func) {
     window.modules = window.modules || {};
     window.modules[file_name] = window.modules[file_name] || {};
@@ -140,9 +140,13 @@ function exports(file_name, func_name, func) {
     }
 }
 
-// register a callback when everythign is loaded
+// register a callback when everything is loaded
 function requireDone (cb) {
     window.modules._done_cbs = window.modules._done_cbs || [];
     window.modules._done_cbs.push(cb);
 }
 
+function toggleRequireDebug() {
+    if(window.requireDebug)     window.requireDebug = false;
+    else                        window.requireDebug = true;
+}
