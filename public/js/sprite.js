@@ -1,5 +1,7 @@
 /*
- * obj is the general Sprite object that all other objects will use as a parent.
+ * This file creates the general sprite object that all other objects depend on.
+ *
+ * Be careful when editing this file as you can easily break everything else if this file changes significantly.
  */
 
 (function() {
@@ -34,7 +36,7 @@
 
         };
 
-        console.log("a new sprite has been created");
+//        console.log("a new sprite has been created");
         return obj;
     }
 

@@ -43,6 +43,9 @@
             }
             return undefined;
         },
+        getAllData: function() {
+            return data;
+        },
         setData: function (name, value) {
             data[name] = value;
         }
@@ -50,7 +53,7 @@
 
     // export all our functions in the interface
     for (var key in _interface){
-        exports ("helperMods/input.js", key, _interface[key]);
+        exports ("public/js/input.js", key, _interface[key]);
     }
 })();
 
