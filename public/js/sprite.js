@@ -6,6 +6,7 @@
 
 (function() {
 
+    //todo: turn the list of parameters into properties on an object that i can just pass into this object
     function _Sprite(_sheet_url, _width, _height, _xFrames, _yFrames) {
         var obj= {};
         var img = new Image();
@@ -18,8 +19,10 @@
         obj.posibleFramesY = _yFrames;
         obj.frameX = 0;
         obj.frameY = 0;
-        obj.xPos = 100;
-        obj.yPos = 100;
+        obj.xPos = 10;
+        obj.yPos = 10;
+        obj.hp = 1;
+        obj.deleteThis = false;
 
         obj.draw = function() {
             window.ctx.drawImage(

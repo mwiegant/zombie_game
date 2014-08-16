@@ -16,12 +16,14 @@
         obj.initY = _yPos;
         obj.xPos = _xPos;
         obj.yPos = _yPos;
-        obj.maxDistance = 50;
-        obj.deleteThis = false;
+        obj.xVel = _xVel;
+        obj.yVel = _yVel;
+        obj.maxDistance = 150;
+
 
         obj.update = function(data) {
-            obj.xPos += _xVel;
-            obj.yPos += _yVel;
+            obj.xPos += obj.xVel;
+            obj.yPos += obj.yVel;
 
             if( obj.xPos < 0 || obj.xPos > window.canvasWidth ) {
                 obj.deleteThis = true;
@@ -29,7 +31,7 @@
             else if( obj.yPos < 0 || obj.yPos > window.canvasHeight ) {
                 obj.deleteThis = true;
             }
-            else if( Math.abs(obj.yPos - obj.initY) > obj.maxDistance || Math.abs(obj.yPos - obj.initY) > obj.maxDistance ) {
+            else if( Math.abs(obj.yPos - obj.initY) > obj.maxDistance || Math.abs(obj.xPos - obj.initX) > obj.maxDistance ) {
                 obj.deleteThis = true;
             }
         };

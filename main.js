@@ -10,13 +10,13 @@
     var bullet = require('public/js/bullet.js');
     var barrel = require('public/js/barrel.js');
 
-    // todo: require the rest of the modules
     var input = require("public/js/input.js");
 
 
     var allImages = [
         "./public/img/bullet.png",
         "./public/img/barrel_map.png",
+        "./public/img/player_map_2.png",    //todo remove this when no longer needed
         "./public/img/player_map.png",
         "./public/img/zombie_map.png"
     ];
@@ -33,33 +33,10 @@
     var player;
     var zombies = [];
     var bullets = [];
+    var barrels = [];
 
     function _createGame() {
-
         var obj = {};
-
-        obj.preloadImages = function(arr, cb) {
-            var newImages = [];
-            var loadedImages = 0;
-            var arr = (typeof arr!="object")? [arr] : arr;
-            function imageloadpost() {
-                loadedImages++;
-                if(loadedImages==arr.length) {
-                    console.log("All images have loaded, beginning program execution");
-                }
-            }
-            for(var i=0; i<arr.length; i++) {
-                newImages[i] = new Image();
-                newImages[i].src = arr[i];
-                newImages[i].onload = function() {
-                    imageloadpost();
-                };
-                newImages[i].onerror = function() {
-                    imageloadpost();
-                };
-            }
-            return cb();
-        };
 
         obj.setupInput = function() {
             //todo set up input with default values
@@ -71,7 +48,7 @@
 
             input.listen(W_KEY, function(_data){
                 var yPos = _data.playerY;
-                if(yPos > 0 && yPos - 120 < window.canvasHeight)
+                if(yPos > 4 )
                     _data.playerY = yPos - 4;
 
                 _data.playerRotate = Math.PI;
@@ -80,7 +57,7 @@
 
             input.listen(S_KEY, function(_data) {
                 var yPos = _data.playerY;
-                if(yPos > 0 && yPos - 120 < window.canvasHeight)
+                if(yPos - 104 < window.canvasHeight)    // 104 is the 4 movement + character height
                     _data.playerY = yPos + 4;
 
                 _data.playerRotate = 0;
@@ -89,7 +66,7 @@
 
             input.listen(A_KEY, function(_data) {
                 var xPos = _data.playerX;
-                if(xPos > 0 && xPos - 125 < window.canvasWidth)
+                if(xPos > 4)
                     _data.playerX = xPos - 4;
 
                 _data.playerRotate = Math.PI / 2;
@@ -98,7 +75,7 @@
 
             input.listen(D_KEY, function(_data) {
                 var xPos = _data.playerX;
-                if(xPos > 0 && xPos - 125 < window.canvasWidth)
+                if(xPos - 84 < window.canvasWidth)     // 84 is the 4 movement + character width
                     _data.playerX = xPos + 4;
 
                 _data.playerRotate = Math.PI / -2;
@@ -106,17 +83,23 @@
             });
 
             input.listen(SPACEBAR, function(_data) {
-                bullets.push( bullet.create( _data.playerX, _data.playerY, _data.firingOrientation[0] * 2, _data.firingOrientation[1] * 2) );
+                var xPos = (player.xPos + player.width) / 2;
+                var yPos = (player.yPos + player.height) / 2;
+                bullets.push( bullet.create( xPos, yPos, _data.firingOrientation[0] * 2, _data.firingOrientation[1] * 2) );
             });
             input.listen(ENTER, function(_data) {
-                // todo: hook up to drop barrel functionality
+                var xPos = (player.xPos + player.width) / 2;
+                var yPos = (player.yPos + player.height) / 2;
+                var xFiring = _data.firingOrientation[0] * 5;
+                var yFiring = _data.firingOrientation[1] * 5;
 
+                // todo: finish setting up the barrel firing process
             });
         };
 
         obj.setupGame = function() {
             if(frame === 0){
-                player = shooter.create("./public/img/player_map.png", 125, 120, 5, 4);
+                player = shooter.create("./public/img/player_map_2.png", 80, 100, 5, 4);
                 zombies.push( zombie.create("./public/img/zombie_map.png", 40, 56, 4, 4) );
 
                 obj.setupInput();
@@ -126,12 +109,9 @@
         };
 
         obj.update = function() {
-
             // todo: update program state, especially using user input
 
 
-
-            // todo: update player, zombie, and other objects
             player.update( input.getAllData() );
 
             bullets.forEach( function(_bullet) {
@@ -140,21 +120,48 @@
                 if(_bullet.deleteThis) {
                     var index = bullets.indexOf(_bullet);
                     bullets.splice(index, 1);
-                    console.log("## a bullet has been destroyed");
                 }
 
             });
 
             zombies.forEach( function(_zombie) {
                 _zombie.update( input.getAllData() );
+
+                bullets.forEach( function(_bullet) {
+                    if( _zombie.collidesWith(_bullet) ) {
+                        var index = bullets.indexOf(_bullet);
+                        bullets.splice(index, 1);
+                    }
+                });
+
+                if(_zombie.deleteThis) {
+                    var index = zombies.indexOf(_zombie);
+                    zombies.splice(index, 1);
+                    console.log("## a zombie has been killed");
+                }
             });
 
+            barrels.forEach( function(_barrel) {
+                _barrel.update();
+
+                bullets.forEach( function(_bullet) {
+                    if( _barrel.collidesWith(_bullet) ) {
+                        var index = bullets.indexOf(_bullet);
+                        bullets.splice(index, 1);
+                    }
+                });
+
+                if(_barrel.deleteThis) {
+                    var index = barrels.indexOf(_barrel);
+                    barrels.splice(index, 1);
+                    console.log("## a barrel has exploded");
+                }
+            });
         };
 
         obj.draw = function() {
             window.ctx.clearRect(0,0, window.canvasWidth, window.canvasHeight);
 
-            // todo: draw player, zombies, and other objects
             player.draw();
 
             bullets.forEach( function(_bullet) {
@@ -164,6 +171,10 @@
             zombies.forEach( function(_zombie) {
                 _zombie.draw();
             });
+
+            barrels.forEach( function(_barrel) {
+                _barrel.draw();
+            })
         };
 
         obj.requestAnimFrame = function(cb) {
