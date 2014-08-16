@@ -7,14 +7,14 @@
    ------------CONFIGURATION--------------------------------------------------------------------------------------------
 
     To make use of this module, import this file as a script into your html file.  Be sure to include this script BEFORE
-    your main program driver script. Example (Notice that your src attributes will differ from mine):
+    your main program driver script. Example: (Notice that your src attributes will differ from mine)
 
-        <body>
+        <body>                                                          <----- the top of the body of your html document
 
             <!-- All of your html content... -->
 
-            <script src="public/js/require.js"></script>
-            <script src="index.js"></script>
+            <script src="public/js/require.js"></script>                <----- the require file (this file)
+            <script src="index.js"></script>                            <----- main driver script
 
         </body>
 
@@ -139,6 +139,29 @@ function exports(file_name, func_name, func) {
         }
     }
 }
+
+function preloadImages(arr, cb) {
+    var newImages = [];
+    var loadedImages = 0;
+    var arr = (typeof arr!="object")? [arr] : arr;
+    function imageloadpost() {
+        loadedImages++;
+        if(loadedImages==arr.length) {
+            if(window.requireDebug)  console.log("All images have loaded, beginning program execution");
+        }
+    }
+    for(var i=0; i<arr.length; i++) {
+        newImages[i] = new Image();
+        newImages[i].src = arr[i];
+        newImages[i].onload = function() {
+            imageloadpost();
+        };
+        newImages[i].onerror = function() {
+            imageloadpost();
+        };
+    }
+    return cb();
+};
 
 // register a callback when everything is loaded
 function requireDone (cb) {
