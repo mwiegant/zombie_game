@@ -1,18 +1,28 @@
-/*
-This is going to be the player-controlled character
- */
 
 
-// document.getElementById("canvas").style.backgroundColor = 'blue';
 
 (function() {
-    function _Shooter()
-    {
+
+    var sprite = require("public/js/sprite.js");
+
+    function _Shooter(_sheet_url, _width, _height, _xFrames, _yFrames) {
+
+        var obj = sprite.create(_sheet_url, _width, _height, _xFrames, _yFrames);
 
 
+
+
+
+        obj.update = function() {
+            // todo update the frame count and the position
+        };
+
+
+        console.log("---> a shooter has been created");
+        return obj;
     }
 
-    exports("shooter.js", "Shooter", _Shooter);
+    exports("public/js/shooter.js", "create", _Shooter);
 
 
 })();

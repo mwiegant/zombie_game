@@ -1,4 +1,6 @@
 ﻿
+//todo find out if I can put an object into exports
+
 /*
                    -----DOCUMENTATION-----
 
