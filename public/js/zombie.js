@@ -6,10 +6,9 @@ This is the zombie class. All zombie functionality goes into this file.
 
     var sprite = require("public/js/sprite.js");
 
-    //todo: turn the list of parameters into properties on an object that i can just pass into this object
-    function _Zombie(_sheet_url, _width, _height, _xFrames, _yFrames) {
+    function _Zombie(_sheet) {
 
-        var obj = sprite.create(_sheet_url, _width, _height, _xFrames, _yFrames);
+        var obj = sprite.create(_sheet);
         obj.hp = 3;
 
         obj.update = function(data) {

@@ -6,20 +6,21 @@
 
     var sprite = require("public/js/sprite.js");
 
-    function _Bullet(_xPos, _yPos, _xVel, _yVel) {
-        var _sheet_url = "./public/img/bullet.png";
-        var _size = 16;
-        var _frames = 1;
-        var obj = sprite.create(_sheet_url, _size, _size, _frames, _frames);
+    function _Bullet(_sheet, _xPos, _yPos, _xVel, _yVel) {
+        var obj = sprite.create(_sheet);
+
+        obj.speed = 2;
+        obj.maxDistance = 150;
 
         obj.initX = _xPos;
         obj.initY = _yPos;
         obj.xPos = _xPos;
         obj.yPos = _yPos;
-        obj.xVel = _xVel;
-        obj.yVel = _yVel;
-        obj.maxDistance = 150;
+        obj.xVel = _xVel * obj.speed;
+        obj.yVel = _yVel * obj.speed;
 
+        obj.xFrames = _xVel;
+        obj.yFrames = _yVel;
 
         obj.update = function(data) {
             obj.xPos += obj.xVel;

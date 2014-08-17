@@ -35,11 +35,46 @@
     var bullets = [];
     var barrels = [];
 
+    // todo move this information into a JSON.js file
+
+    //todo: build the player sheet correctly
+    var playerSheet = {
+        "url": "./public/img/player_map_2.png",
+        "width": 80,
+        "height": 100,
+        "xFrames": 5,
+        "yFrames": 4
+    };
+    var zombieSheet = {
+        "url": "./public/img/zombie_map.png",
+        "width": 40,
+        "height": 56,
+        "xFrames": 4,
+        "yFrames": 4
+    };
+
+    //todo: resize the bullet sheet
+    var barrelSheet = {
+        "url": "./public/img/barrel_map.png",
+        "width": 72,
+        "height": 54,
+        "xFrames": 4,
+        "yFrames": 3
+    };
+
+    // todo: build a bullet sheet
+    var bulletSheet = {
+        "url": "./public/img/bullet.png",
+        "width": 16,
+        "height": 16,
+        "xFrames": 1,
+        "yFrames": 1
+    }
+
     function _createGame() {
         var obj = {};
 
         obj.setupInput = function() {
-            //todo set up input with default values
             input.setData("playerX", 100);
             input.setData("playerY", 100);
             input.setData("playerRotate", 0);
@@ -47,7 +82,7 @@
 
 
             input.listen(W_KEY, function(_data){
-                var yPos = _data.playerY;
+                var yPos = _data.playerY = player.yPos;
                 if(yPos > 4 )
                     _data.playerY = yPos - 4;
 
@@ -56,7 +91,7 @@
             });
 
             input.listen(S_KEY, function(_data) {
-                var yPos = _data.playerY;
+                var yPos = _data.playerY = player.yPos;
                 if(yPos - 104 < window.canvasHeight)    // 104 is the 4 movement + character height
                     _data.playerY = yPos + 4;
 
@@ -65,7 +100,7 @@
             });
 
             input.listen(A_KEY, function(_data) {
-                var xPos = _data.playerX;
+                var xPos = _data.playerX = player.xPos;
                 if(xPos > 4)
                     _data.playerX = xPos - 4;
 
@@ -74,7 +109,7 @@
             });
 
             input.listen(D_KEY, function(_data) {
-                var xPos = _data.playerX;
+                var xPos = _data.playerX = player.xPos;
                 if(xPos - 84 < window.canvasWidth)     // 84 is the 4 movement + character width
                     _data.playerX = xPos + 4;
 
@@ -85,22 +120,29 @@
             input.listen(SPACEBAR, function(_data) {
                 var xPos = (player.xPos + player.width) / 2;
                 var yPos = (player.yPos + player.height) / 2;
-                bullets.push( bullet.create( xPos, yPos, _data.firingOrientation[0] * 2, _data.firingOrientation[1] * 2) );
+                var xFiring = (_data.firingOrientation[0] * player.width);
+                var yFiring = (_data.firingOrientation[1] * player.height);
+
+                var finalX = xPos + xFiring;
+                var finalY = yPos + yFiring;
+                bullets.push( bullet.create( bulletSheet, finalX, finalY, _data.firingOrientation[0], _data.firingOrientation[1]) );
             });
             input.listen(ENTER, function(_data) {
                 var xPos = (player.xPos + player.width) / 2;
                 var yPos = (player.yPos + player.height) / 2;
-                var xFiring = _data.firingOrientation[0] * 5;
-                var yFiring = _data.firingOrientation[1] * 5;
+                var xFiring = (_data.firingOrientation[0] * player.width) + 5;
+                var yFiring = (_data.firingOrientation[1] * player.height) + 5;
 
-                // todo: finish setting up the barrel firing process
+                var finalX = xPos + xFiring;
+                var finalY = yPos + yFiring;
+                barrels.push( barrel.create( barrelSheet, finalX, finalY));
             });
         };
 
         obj.setupGame = function() {
             if(frame === 0){
-                player = shooter.create("./public/img/player_map_2.png", 80, 100, 5, 4);
-                zombies.push( zombie.create("./public/img/zombie_map.png", 40, 56, 4, 4) );
+                player = shooter.create(playerSheet);
+                zombies.push( zombie.create(zombieSheet) );
 
                 obj.setupInput();
             }
@@ -110,7 +152,6 @@
 
         obj.update = function() {
             // todo: update program state, especially using user input
-
 
             player.update( input.getAllData() );
 
@@ -137,7 +178,7 @@
                 if(_zombie.deleteThis) {
                     var index = zombies.indexOf(_zombie);
                     zombies.splice(index, 1);
-                    console.log("## a zombie has been killed");
+//                    console.log("## a zombie has been killed");
                 }
             });
 
@@ -154,7 +195,7 @@
                 if(_barrel.deleteThis) {
                     var index = barrels.indexOf(_barrel);
                     barrels.splice(index, 1);
-                    console.log("## a barrel has exploded");
+//                    console.log("## a barrel has exploded");
                 }
             });
         };

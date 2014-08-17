@@ -6,10 +6,12 @@ This file contains the code for explosive barrels.
 
     var sprite = require("public/js/sprite.js");
 
-    //todo: turn the list of parameters into properties on an object that i can just pass into this object
-    function _Barrel(_sheet_url, _width, _height, _xFrames, _yFrames) {
+    function _Barrel(_sheet, _xPos, _yPos) {
 
-        var obj = sprite.create(_sheet_url, _width, _height, _xFrames, _yFrames);
+        var obj = sprite.create(_sheet);
+
+        obj.xPos = _xPos;
+        obj.yPos = _yPos;
 
         obj.update = function(data) {
             // todo: if this barrel has been hit, go through its frames
