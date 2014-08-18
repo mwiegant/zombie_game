@@ -56,7 +56,7 @@
 
     }
 
-    exports("public/js/fpscounter.js", "create", _Counter);
+    exports("public/js/framecounter.js", "create", _Counter);
 })();
 
 
