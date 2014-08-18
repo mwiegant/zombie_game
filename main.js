@@ -4,6 +4,8 @@
  * It imports all the other files into the program and runs the entire game
  */
 
+
+
 (function() {
     var shooter = require("public/js/shooter.js");
     var zombie = require('public/js/zombie.js');
