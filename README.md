@@ -27,6 +27,12 @@ arrays.  There are certainly some processes that I'd like to turn into functions
 stands, I am beginning to build a library of code just from the require.js and input.js files, which I will be 
 continuing to use in the future.
 
+Files to include in code library:
+    --> require.js
+    --> input.js
+    --> widget.js
+    --> fpscounter.js
+
 Other Specs, Important Dates, or information about using this code may be written in the future.
 
 

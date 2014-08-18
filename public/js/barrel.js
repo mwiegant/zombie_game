@@ -9,13 +9,31 @@ This file contains the code for explosive barrels.
     function _Barrel(_sheet, _xPos, _yPos) {
 
         var obj = sprite.create(_sheet);
+        var FRAME_TIME = 1;
 
         obj.xPos = _xPos;
         obj.yPos = _yPos;
+        obj.exploding = false;
+        obj.frameTimer = 0;
+
 
         obj.update = function(data) {
-            // todo: if this barrel has been hit, go through its frames
-
+            if(obj.exploding) {
+                if(obj.frameX < obj.possibleFramesX) {
+                    // this slows down how fast this object goes through the animation. . .
+                    if( obj.frameTimer < FRAME_TIME) {
+                        obj.frameTimer++;
+                    }
+                    else {
+                        obj.frameTimer = 0;
+                        obj.frameX++;
+                        console.log("## going to next barrel frame");
+                    }
+                }
+                else {
+                    this.deleteThis = true;     // if this barrel has shown the full animation, then destroy it
+                }
+            }
         };
 
         obj.collidesWith = function(bullet) {
@@ -31,16 +49,9 @@ This file contains the code for explosive barrels.
 
             if(bulletX > barrelLeft && bulletX < barrelRight) {
                 if(bulletY > barrelTop && bulletY < barrelBottom)
-                    collided = true;
+                    collided = obj.exploding = true;
             }
 
-            if(collided) {
-                obj.xPos += bullet.xVel;
-                obj.yPos += bullet.yVel;
-
-                obj.hp--;
-                if(obj.hp < 1)  obj.deleteThis = true;
-            }
 
             return collided;
         };

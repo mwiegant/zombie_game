@@ -12,18 +12,25 @@
         obj.hp = 10;
 
         obj.update = function(data) {
-            // todo update the frame count
+            //todo check for zombie attacks (and death of this unit)
+
+            this.frameX = data.playerXFrame;
+            this.frameY = data.playerYFrame;
+
+            if( this.frameX > this.possibleFramesX)     this.frameX = data.playerXFrame = 0;
+            else if( this.frameX < 0 )                  this.frameX = data.playerXFrame = this.possibleFramesX;
+
+            if( this.frameY > this.possibleFramesY || this.frameY < 0  ) {
+                console.log("There was some kind of error in setting the y-frame for the player shooter object");
+                this.frameY = 0;
+            }
 
             this.xPos = data.playerX;
             this.yPos = data.playerY;
-            this.rotateAngle = data.playerRotate;
         };
 
         obj.draw = function() {
-            // rotate the image, as the sprite sheet I am currently using only has 1 facing in it
-//            window.ctx.save();
-//            window.ctx.translate(obj.xPos + (obj.width / 2), obj.yPos + (obj.height / 2) );
-//            window.ctx.rotate(obj.rotateAngle);
+
 
             window.ctx.drawImage(
                 obj.sheet,

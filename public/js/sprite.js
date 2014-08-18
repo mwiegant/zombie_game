@@ -14,8 +14,8 @@
         obj.sheet = img;
         obj.width = _sheet.width;
         obj.height = _sheet.height;
-        obj.posibleFramesX = _sheet.xFrames;
-        obj.posibleFramesY = _sheet.yFrames;
+        obj.possibleFramesX = _sheet.xFrames;
+        obj.possibleFramesY = _sheet.yFrames;
         obj.frameX = 0;
         obj.frameY = 0;
         obj.xPos = 10;
