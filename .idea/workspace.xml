@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="425e3015-1630-431e-a1df-b3199a581621" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/framecounter.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/test.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/bullet_map.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/bullet.png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/img/player_map.png" afterPath="$PROJECT_DIR$/public/img/original_player_map.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/barrel_map.png" afterPath="$PROJECT_DIR$/public/img/barrel_map.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/player_map.png" afterPath="$PROJECT_DIR$/public/img/player_map.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="zombie_game.iws" />
@@ -27,75 +31,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="4560">
-              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="framecounter.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/framecounter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77209944" vertical-offset="311" max-vertical-offset="1035">
-              <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.621547" vertical-offset="0" max-vertical-offset="1890">
+              <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#718#857#0" expanded="false" />
+                <element signature="e#957#1096#0" expanded="false" />
+                <element signature="e#1120#1259#0" expanded="false" />
+                <element signature="e#1283#1422#0" expanded="false" />
+                <element signature="e#1528#1608#0" expanded="false" />
+                <element signature="e#1994#4940#0" expanded="false" />
+                <element signature="e#5619#5853#0" expanded="false" />
+                <element signature="e#5904#6471#0" expanded="false" />
+                <element signature="e#6522#7001#0" expanded="false" />
+                <element signature="e#7539#7950#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shooter.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/shooter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="900">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="barrel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/barrel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1065">
-              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widget.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/widget.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="540">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="15" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sprite.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/sprite.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="795">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bullet.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/bullet.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1005">
-              <caret line="36" column="116" selection-start-line="36" selection-start-column="116" selection-end-line="36" selection-end-column="116" />
-              <folding />
-            </state>
+      <file leaf-file-name="original_player_map.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/img/original_player_map.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -127,10 +87,10 @@
         <option value="$PROJECT_DIR$/public/js/widget.js" />
         <option value="$PROJECT_DIR$/public/js/shooter.js" />
         <option value="$PROJECT_DIR$/public/js/fpscounter.js" />
-        <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/public/js/test.js" />
         <option value="$PROJECT_DIR$/public/js/FPScounter.js" />
         <option value="$PROJECT_DIR$/public/js/framecounter.js" />
+        <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
   </component>
@@ -248,7 +208,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="options.lastSelected" value="preferences.toDoOptions" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -366,8 +326,32 @@
       <created>1408345308574</created>
       <updated>1408345308574</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="test commit for framecounter">
+      <created>1408345657021</created>
+      <updated>1408345657021</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="23" width="1410" height="844" extended-state="0" />
@@ -376,7 +360,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1475882" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -441,11 +425,12 @@
     <MESSAGE value="updated sprite objects &amp; parameters, fixed barrel and bullet placements" />
     <MESSAGE value="implemented sprite map usage on all objects; added fps counter" />
     <MESSAGE value="test commit for fpscounter" />
-    <option name="LAST_COMMIT_MESSAGE" value="test commit for fpscounter" />
+    <MESSAGE value="test commit for framecounter" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit for framecounter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -460,7 +445,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="2370">
           <caret line="57" column="24" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
-          <folding />
+          <folding>
+            <element signature="e#718#857#0" expanded="false" />
+            <element signature="e#957#1096#0" expanded="false" />
+            <element signature="e#1120#1259#0" expanded="false" />
+            <element signature="e#1283#1422#0" expanded="false" />
+            <element signature="e#1528#1608#0" expanded="false" />
+            <element signature="e#1994#4940#0" expanded="false" />
+            <element signature="e#5619#5853#0" expanded="false" />
+            <element signature="e#5904#6471#0" expanded="false" />
+            <element signature="e#6522#7001#0" expanded="false" />
+            <element signature="e#7539#7950#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -506,7 +502,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="1950">
           <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="e#718#857#0" expanded="false" />
+            <element signature="e#957#1096#0" expanded="false" />
+            <element signature="e#1120#1259#0" expanded="false" />
+            <element signature="e#1283#1422#0" expanded="false" />
+            <element signature="e#1528#1608#0" expanded="false" />
+            <element signature="e#1994#4940#0" expanded="false" />
+            <element signature="e#5619#5853#0" expanded="false" />
+            <element signature="e#5904#6471#0" expanded="false" />
+            <element signature="e#6522#7001#0" expanded="false" />
+            <element signature="e#7539#7950#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -683,22 +690,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/bullet.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/player_map_2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/img/zombie_map.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/player_map.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -707,6 +699,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -715,17 +708,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/barrel_map_2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/player_map_3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/bullet_map.png">
+    <entry file="file://$PROJECT_DIR$/public/img/player_map.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -745,13 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6866953" vertical-offset="0" max-vertical-offset="720">
           <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.041322313" vertical-offset="0" max-vertical-offset="726">
-          <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -787,20 +763,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.js">
+    <entry file="file://$PROJECT_DIR$/public/js/framecounter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2655">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="311" max-vertical-offset="1035">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/framecounter.js">
+    <entry file="file://$PROJECT_DIR$/public/img/bullet_map.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/original_player_map.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77209944" vertical-offset="311" max-vertical-offset="1035">
-          <caret line="58" column="28" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.621547" vertical-offset="0" max-vertical-offset="1890">
+          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#718#857#0" expanded="false" />
+            <element signature="e#957#1096#0" expanded="false" />
+            <element signature="e#1120#1259#0" expanded="false" />
+            <element signature="e#1283#1422#0" expanded="false" />
+            <element signature="e#1528#1608#0" expanded="false" />
+            <element signature="e#1994#4940#0" expanded="false" />
+            <element signature="e#5619#5853#0" expanded="false" />
+            <element signature="e#5904#6471#0" expanded="false" />
+            <element signature="e#6522#7001#0" expanded="false" />
+            <element signature="e#7539#7950#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -4,8 +4,6 @@
  * It imports all the other files into the program and runs the entire game
  */
 
-
-
 (function() {
     var shooter = require("public/js/shooter.js");
     var zombie = require('public/js/zombie.js');
@@ -13,16 +11,50 @@
     var barrel = require('public/js/barrel.js');
 
     var input = require("public/js/input.js");
-    var fpscounter = require("public/js/fpscounter.js");
+    var fpscounter = require("public/js/framecounter.js");
 
     var allImages = [
-        //todo properly name everything, no _2 or _3 shit (reflect changes in the sheets below as well)
         "./public/img/bullet_map.png",
-        "./public/img/barrel_map_2.png",
-        "./public/img/player_map_3.png",
+        "./public/img/barrel_map.png",
         "./public/img/player_map.png",
         "./public/img/zombie_map.png"
     ];
+
+    // todo move the sheets information into a JSON.js file
+    var playerSheet = {
+        "url": "./public/img/player_map.png",
+        "width": 66,
+        "height": 58,
+        "xFrames": 9,
+        "yFrames": 4
+    };  //todo: rebuild the 'left' and 'right' sprite movements so they look nicer
+    var zombieSheet = {
+        "url": "./public/img/zombie_map.png",
+        "width": 40,
+        "height": 56,
+        "xFrames": 4,
+        "yFrames": 4
+    };
+    var barrelSheet = {
+        "url": "./public/img/barrel_map.png",
+        "width": 52,
+        "height": 54,
+        "xFrames": 9,
+        "yFrames": 1
+    };
+    var bulletSheet = {
+        "url": "./public/img/bullet_map.png",
+        "width": 16,
+        "height": 16,
+        "xFrames": 4,
+        "yFrames": 1
+    };  //todo: get rid of bullet sheet and just draw a rectangle on canvs instead
+    var frameCounterSpecs = {
+        dx: 40,
+        dy: 400,
+        xScale: 140,
+        yScale: 50
+    };
 
     var W_KEY = 87;
     var A_KEY = 65;
@@ -40,45 +72,6 @@
     var bullets = [];
     var barrels = [];
 
-    // todo move the sheets information into a JSON.js file
-
-    var playerSheet = {
-        "url": "./public/img/player_map_3.png",
-        "width": 66,
-        "height": 58,
-        "xFrames": 9,
-        "yFrames": 4
-    };
-    var zombieSheet = {
-        "url": "./public/img/zombie_map.png",
-        "width": 40,
-        "height": 56,
-        "xFrames": 4,
-        "yFrames": 4
-    };
-
-    var barrelSheet = {
-        "url": "./public/img/barrel_map_2.png",
-        "width": 52,
-        "height": 54,
-        "xFrames": 9,
-        "yFrames": 1
-    };
-
-    var bulletSheet = {
-        "url": "./public/img/bullet_map.png",
-        "width": 16,
-        "height": 16,
-        "xFrames": 4,
-        "yFrames": 1
-    };
-
-    var frameCounterSpecs = {
-        dx: 40,
-        dy: 400,
-        xScale: 140,
-        yScale: 50
-    };
 
     function _createGame() {
         var obj = {};
@@ -169,24 +162,15 @@
                 frameCounter = fpscounter.create( frameCounterSpecs, window.ctx );
                 zombies.push( zombie.create(zombieSheet) );
 
-                zombies.push( zombie.create(zombieSheet) );
-                zombies.push( zombie.create(zombieSheet) );
-                zombies.push( zombie.create(zombieSheet) );
-                zombies.push( zombie.create(zombieSheet) );
-                zombies.push( zombie.create(zombieSheet) );
-                zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );zombies.push( zombie.create(zombieSheet) );
-
-
-
-
-
                 obj.setupInput();
             }
 
-
+                // todo: rewrite this function.  The way it is written seems un-necessary?
         };
 
         obj.update = function() {
+
+            //todo: rewrite this function: it may be responsible for limiting me to 50 FPS
 
             player.update( input.getAllData() );
 
@@ -216,7 +200,6 @@
                 if(_zombie.deleteThis) {
                     var index = zombies.indexOf(_zombie);
                     zombies.splice(index, 1);
-//                    console.log("## a zombie has been killed");
                 }
             });
 
@@ -233,7 +216,6 @@
                 if(_barrel.deleteThis) {
                     var index = barrels.indexOf(_barrel);
                     barrels.splice(index, 1);
-                    console.log("## a barrel has exploded");
                 }
             });
         };
@@ -291,7 +273,6 @@
 // ===========\\\\\
 
         return obj;
-
     }
 
     exports("main.js", "createGame", _createGame);
