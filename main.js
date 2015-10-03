@@ -265,7 +265,7 @@
 // ===========/////
 
         // after all images have been loaded, start program execution
-            preloadImages(allImages, function() {
+		preloadImages(allImages, function() {
             obj.setupGame();
             obj.run();
         });

@@ -43,7 +43,7 @@
 
 //            window.ctx.restore();
 
-        }
+        };
 
 //        console.log("---> a shooter has been created");
         return obj;
